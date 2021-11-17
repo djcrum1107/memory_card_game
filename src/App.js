@@ -33,36 +33,36 @@ function App() {
         text: 'Sample text'
       },
     ];
-    console.log(cardSet);
     return cardSet;
   }
   const [cards, setCards] = useState(getInitCards, []);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [selectedIDs, setSelectedIDs] = useState([]);
 
   const addPoint = () => {
     setScore(score + 1);
   };
 
   const onClick = (id) => {
-    console.log(id);
-    if(id === 1){
+    if(selectedIDs.includes(id)){
+      setSelectedIDs([]);
       setScore(0);
     }else{
+      setSelectedIDs([...selectedIDs, id]);
       addPoint();
     }
-    
-  }
+  };
 
   useEffect(() => {
     if(score > highScore){
       setHighScore(score);
     };
-  }, [score])
+  }, [score]);
 
   return (
     <div className="App">
-      <Header title='Header Title' score={score} highScore={highScore}/>
+      <Header title="DJ's Memory Game" score={score} highScore={highScore}/>
       <Gameboard cards={cards} onClick={onClick}/>
     </div>
   );

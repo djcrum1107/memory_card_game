@@ -5,6 +5,8 @@
  .header {
   background-color: #282c34;
   color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 .gameboard {
