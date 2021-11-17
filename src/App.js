@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Gameboard from './components/Gameboard';
 import Header from './components/Header';
 
@@ -11,21 +11,26 @@ function App() {
       img: 'image',
       text: 'Sample text'
     }], []);
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
-    const [score, setScore] = useState(0);
+  const addPoint = () => {
+    setScore(score + 1);
+  };
 
-    const addPoint = () => {
-        setScore(score + 1);
-      };
-
-  const onClick = () => {
+  const onClick = (id) => {
     addPoint();
-    console.log('Gameboard clicked');
   }
+
+  useEffect(() => {
+    if(score > highScore){
+      setHighScore(score);
+    };
+  }, [score])
 
   return (
     <div className="App">
-      <Header title='Header Title' score={score}/>
+      <Header title='Header Title' score={score} highScore={highScore}/>
       <Gameboard cards={cards} onClick={onClick}/>
     </div>
   );
