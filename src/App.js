@@ -5,12 +5,38 @@ import Header from './components/Header';
 
 function App() {
 
-  const [cards, setCards] = useState([
-    {
-      id: 1,
-      img: 'image',
-      text: 'Sample text'
-    }], []);
+  const getInitCards = () => {
+    let cardSet = [
+      {
+        id: 1,
+        img: 'image',
+        text: 'Sample text'
+      },
+      {
+        id: 2,
+        img: 'image',
+        text: 'Sample text'
+      },
+      {
+        id: 3,
+        img: 'image',
+        text: 'Sample text'
+      },
+      {
+        id: 4,
+        img: 'image',
+        text: 'Sample text'
+      },
+      {
+        id: 5,
+        img: 'image',
+        text: 'Sample text'
+      },
+    ];
+    console.log(cardSet);
+    return cardSet;
+  }
+  const [cards, setCards] = useState(getInitCards, []);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
 
@@ -19,7 +45,13 @@ function App() {
   };
 
   const onClick = (id) => {
-    addPoint();
+    console.log(id);
+    if(id === 1){
+      setScore(0);
+    }else{
+      addPoint();
+    }
+    
   }
 
   useEffect(() => {
