@@ -2,6 +2,19 @@ import './App.css';
 import React, { useState, useEffect } from 'react'
 import Gameboard from './components/Gameboard';
 import Header from './components/Header';
+import { barbarian_img,
+  bard_img,
+  cleric_img,
+  druid_img,
+  fighter_img,
+  monk_img,
+  paladin_img,
+  ranger_img,
+  rogue_img,
+  sorcerer_img,
+  warlock_img,
+  wizard_img
+} from './images/index'
 
 function App() {
 
@@ -9,63 +22,63 @@ function App() {
     let cardSet = [
       {
         id: 1,
-        img: 'image',
-        text: 'Sample text'
+        img: barbarian_img,
+        alt: 'barbarian'
       },
       {
         id: 2,
-        img: 'image',
-        text: 'Sample text'
+        img: bard_img,
+        alt: 'bard'        
       },
       {
         id: 3,
-        img: 'image',
-        text: 'Sample text'
+        img: cleric_img,
+        alt: 'cleric'       
       },
       {
         id: 4,
-        img: 'image',
-        text: 'Sample text'
+        img: druid_img,
+        alt: 'druid'       
       },
       {
         id: 5,
-        img: 'image',
-        text: 'Sample text'
+        img: fighter_img,
+        alt: 'fighter'        
       },
       {
         id: 6,
-        img: 'image',
-        text: 'Sample text'
+        img: monk_img,
+        alt: 'monk'        
       },
       {
         id: 7,
-        img: 'image',
-        text: 'Sample text'
+        img: paladin_img,
+        alt: 'paladin'        
       },
       {
         id: 8,
-        img: 'image',
-        text: 'Sample text'
+        img: ranger_img,
+        alt: 'ranger'        
       },
       {
         id: 9,
-        img: 'image',
-        text: 'Sample text'
+        img: rogue_img,
+        alt: 'rogue'       
       },
       {
         id: 10,
-        img: 'image',
-        text: 'Sample text'
+        img: sorcerer_img,
+        alt: 'sorcerer'        
       },
       {
         id: 11,
-        img: 'image',
-        text: 'Sample text'
+        img: warlock_img,
+        alt: 'warlock'        
       },
       {
         id: 12,
-        img: 'image',
-        text: 'Sample text'
+        img: wizard_img,
+        alt: 'wizard'        
       },
     ];
     return cardSet;
