@@ -16,8 +16,8 @@ import { barbarian_img,
   wizard_img
 } from './images/index'
 
-function App() {
-
+function App() {  
+  
   const getInitCards = () => {
     let cardSet = [
       {
@@ -84,6 +84,32 @@ function App() {
     return cardSet;
   }
 
+  const [cards, setCards] = useState([]);
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
+  const [selectedIDs, setSelectedIDs] = useState([]);
+
+  useEffect(() => {
+    const getCards = async () => {
+      const cardsFromServer = await fetchCards();
+      setCards(getInitCards);
+      if(cardsFromServer == null){
+        console.log('cardsFromServer error')
+        
+      }
+      
+    }
+
+    getCards();
+  }, [])
+
+  const fetchCards = async () => {
+    const res = await fetch('http://localhost:5000/cards');
+    const data = await res.json()
+
+    return data;
+  }
+
   const shufflCards = () => {
     let shuffledCards = [];
     for(let i = cards.length; i > 0; i--){
@@ -92,10 +118,7 @@ function App() {
     setCards(shuffledCards);
   }
 
-  const [cards, setCards] = useState(getInitCards, []);
-  const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
-  const [selectedIDs, setSelectedIDs] = useState([]);
+  
 
   const addPoint = () => {
     setScore(score + 1);
