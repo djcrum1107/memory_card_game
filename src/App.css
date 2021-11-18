@@ -11,11 +11,9 @@
 
 .gameboard {
   display: grid;
-  background-color: aliceblue;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
 }
 .card {
-  background-color: aquamarine;
   margin: 10px;
 }
